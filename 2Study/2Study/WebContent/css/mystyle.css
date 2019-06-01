@@ -1,0 +1,85 @@
+* {
+	color: green;
+	font-size: 15px;
+}
+
+/* h1, h2, h4 {
+	background: orange;
+} */
+
+h1:hover {
+	background: black;
+	color: white;
+}
+
+h1:active {
+	background: white;
+	color: black;
+}
+
+.identification {
+	background: url("/2Study/image/car.png");
+}
+
+p {
+	background: aqua;
+}
+
+p::first-letter {
+	color: red;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+p::first-line {
+	background: gold;
+}
+
+li:first-child {
+	color: red;
+}
+
+li:last-child {
+	color: blue;
+}
+
+li:nth-child(2) {
+	color: yellow;
+}
+
+li:nth-last-child(2) {
+	background: gray;
+}
+
+ul > li:last-child li {
+	background: blue;
+}
+
+input[type="text"], input[type="password"] {
+	background: #CCCCFF;
+}
+
+h1 {
+	background: blue; color: white;
+}
+
+h3 {
+	background: red;
+}
+
+h3#a {
+	background: gray;
+	/* 더 구체적이기 때문에 #a에 대해서 적용됨 */
+}
+
+div h3 {
+	background: orange;
+}
+
+#a {
+	background: black;
+}
+
+body {
+	background: blue url(/2Study/image/pic1.png) repeat-y
+}

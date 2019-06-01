@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" width="900" height="600">
+		<tr height="15%"><td colspan="2">Title</td></tr>
+		<tr height="5%"><td colspan="2"> &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; HTML &nbsp;&nbsp;&nbsp; CSS &nbsp;&nbsp;&nbsp;  JavaScript </td></tr>
+		<tr><td width="20%"> 
+			<ul>
+				<li><a href="audio_video.jsp">오디오/비디오</a></li>
+				<li><a href="iframe.jsp">외부요소 연결</a></li>
+			</ul> 
+			</td>
+				<td>
+				<br>
+				<a href="#audio">오디오 테스트 가기</a> <a href="#video">비디오 테스트 가기</a>
+				<br><br><br>
+				<h3> <a id="audio" >[오디오]</a> </h3> 
+ [배경음악] 지금 듣고 있는 배경음악은 .... 입니다.   <hr> <hr>
+ <audio src="../music/music01.mp3"  autoplay loop  volume=0.2 ></audio> <br>
+  1. 애청곡 : <audio src="../music/music01.mp3" controls loop  volume=0.6 ></audio> <br>
+  2. 공부할 때 듣는 음악 : <audio src="../music/music02.mp3" controls loop volume=0.3 ></audio> <br>
+  3. 생각할 때 듣는 음악 : <audio src="../music/music03.mp3" controls loop volume=0.2 ></audio>
+  <br>
+  ----------------------------------------------
+  <br>  
+  <h3> <a id="video" >[비디오] </a></h3>
+ 왜 우리는 프로그래밍을 배워야 하는가 ? <br><br> 
+ <video src="../video/video00.mp4" controls autoplay width="300" height="200">
+    [비디오] 웹브라우저가 지원하지 않음 
+ </video> 
+ <video src="../video/video00.mp4"  controls poster="why.png" width="300" height="200" />      
+				</td>
+		<tr  height="5%"><td colspan="2">copyright</td></tr>
+	</table>
+</body>
+</html>
