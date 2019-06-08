@@ -4,7 +4,7 @@ JDBC(Java Database Connectivity)란, Java 언어로 다양한 조율의 관계�
 
 JDBC 프로그램의 작성 단계는 다음과 같다. 
 
-![1559993579864](C:\Users\HBY\AppData\Roaming\Typora\typora-user-images\1559993579864.png)
+![1559993579864](C:\Users\HBY\Desktop\GitHub\HTML, CSS, JS\photo\JDBC Programming Step.PNG)
 
 출처: <https://hyeonstorage.tistory.com/110>
 
