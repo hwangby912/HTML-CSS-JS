@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <form name = "form1">
+            이  름: <input type = "text" name = "stuName"/><br>
+            국어 성적: <input type = "text" name = "kor"> <br>
+            수학 성적: <input type = "text" name = "math"> <br>
+            <button onclick = "compute();">성적 처리 결과</button>
+        </form>
+        <script>
+            function compute() {
+                var total;
+                var avg;
+                total = parseInt(form1["kor"].value) + parseInt(form1["math"].value); 
+                // form tag에 대해서 배열 값을 접근하기 위해서는 해당 이름으로 접근한다. ""이 있다면 모두 써야 접근 가능
+                avg = total / 2;
+                alert(form1["stuName"].value + " 학생의 평균 성적은 " + avg + " 입니다. ");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            var id = window.setTimeout(function() { // 비동기적 신호로 동작함. 
+                document.write("setTimeout" + "<br>");
+            }, 3000);
+
+            var clear = window.clearTimeout(id);
+
+            /*
+            document.write("start 지점");
+            비동기함수를 호출(callback() {
+                돌아와서 해야하는 일;
+            });
+            document.write("end 지점");
+            
+
+            function a() { 이 부분은 외워야함
+                var name = "HBY";
+                document.write(window.name);
+            }
+            a();
+            */
+        </script> 
+    </body>
+</html>

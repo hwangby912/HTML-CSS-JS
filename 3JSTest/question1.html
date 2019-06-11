@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function Person(name, id, pw) { // 이런 형식을 '함수 선언식'이라 한다. 
+            this.name = name;
+            this.id = id;
+            this.pw = pw;
+            /*
+            function returnValue() { 이런 식으로 넣으면 안됨
+            JS는 객체같은 함수에 함수를 구현하기 위해서는 객체 안에 
+                console.log(this.name + " " + this.id + " " + this. pw);
+                return this.name + " " + this.id + " " + this. pw;
+            }
+            
+            this.returnValue = function() {   
+            이런 형식을 '함수 표현식'이라 칭한다. 
+            객체를 생성할 때, 함수 객체 수 = 객체 생성 개수 * 객체 내의 함수 개수
+            무수히 많이 생기는 함수 객체들 수 때문에 객체명.prototype.함수명으로 작성한다. 
+                console.log(name + " " + id + " " + pw);
+                return name + " " + id + " " + pw;
+            }
+            */            
+        }
+
+        Person.prototype.returnValue = function() {
+            // 이 code는 Person.prototype 자체에 returnValue라는 함수로 아예 저장을 해버림
+            console.log(this.name + " " + this.id + " " + this.pw);
+            return this.name + " " + this.id + " " + this.pw;
+        }
+
+        function member_insert() {
+            const name = document.forms["member_insert_form"]["name"].value;
+            const id = document.forms["member_insert_form"]["id"].value;
+            const pw = document.forms["member_insert_form"]["pw"].value;
+            const p1 = new Person(name, id, pw);
+            // 1. 3초 뒤에 login 화면 보여주기            
+            setTimeout(threeSec, 3000);
+            
+        }
+
+        function threeSec() {
+            let member_insert_div = document.getElementById("member_insert_div");
+            member_insert_div.innerHTML = "회원가입 완료!!!!!!!!!!"+
+            "<div id = 'login_div'>" +
+            "<form name = 'login_form'>" +
+            "ID <input name = 'login_id'><br>" +
+            "PW <input type = 'password' name = 'login_pw'><br>" +
+            "</form>" +
+            "<button onclick = 'login()'>Login</button>" + 
+            "</div>";
+        }
+
+        function login() {
+            let member_insert_div = document.getElementById("member_insert_div"); // '회원가입 완료'를 없애기 위해 쓰는 것임
+            let login_id = document.forms["login_form"]["login_id"].value;
+            member_insert_div.innerHTML = login_id;
+            
+            //const name = document.forms["login_div"]["login_id"];
+            //document.write(name);
+            //document.write("환영합니다");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>My Web Site</h1>
+    <div id = "member_insert_div">
+        <form name = "member_insert_form">
+            <h1>회원가입</h1>
+            Name <input name = "name"><br>
+            ID <input name = "id"><br>
+            PW <input type = "password" name="pw"><br>
+            <!-- 아직 서버 program을 coding 하지 않앗기에 submit 대신에 button으로 대체 -->
+        </form>
+        <!-- form tag안에 있는 것은 이미 Server로 넘어가기 때문에 callback 함수가 먹히지 않는다. -->
+        <button onclick = "member_insert()">회원가입</button>
+    </div>
+    <img src = "./img/html5.png" width = 150px height = 150px>
+</body>
+
+</html>

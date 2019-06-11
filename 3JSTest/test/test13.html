@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            function Person(name, year, score1, score2) {
+                this.name = name;
+                this.year = year;
+                this.score1 = score1;
+                this.score2 = score2;
+                this.average = function() {
+                    return (this.score1 + this.score2) / 2;
+                }
+            }
+            var guy = new Person("조우진", 3, 80, 90);
+            var lady = new Person("황병윤", 4, 92, 88);
+            document.write(guy.name + "의 평균 : " + guy.average() + "<br>");
+            document.write(lady.name + "의 평균 : " + lady.average() + "<br>");
+        </script> 
+    </body>
+</html>

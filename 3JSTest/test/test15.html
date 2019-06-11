@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <button onclick = "luckyNumber()">행운번호 당첨</button>
+        <script>
+            function luckyNumber() {
+                var num = new Array();
+                for(i = 1; i <= 5; i++) {
+                    num[i] = Math.floor(Math.random() * 44) + 1;
+                    for(j = 1; j <= i; j++) {
+                        if(num[j] == num[i]) {
+                            num[i] = Math.floor(Math.random() * 44) + 1;
+                        }
+                    }
+                }
+                num[6] = Math.floor(Math.random() * 44) + 1;
+                for(i = 1; j <= 5; i++) {
+                    if(num[j] == num[i]) {
+                        num[6] = Math.floor(Math.random() * 44) + 1;
+                    }
+                }
+                document.write("<h3> 행운번호 </h3><hr>");
+                for(i = 1; i <= 5; i++) {
+                    document.write(num[i] + " ");
+                }
+                document.write("<br>보너스: " + num[6]);
+            }
+        </script> 
+    </body>
+</html>

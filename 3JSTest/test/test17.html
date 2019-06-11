@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h3>윈도우 타이머 메서드</h3><hr>
+        현재시간 : <span id = "clock"></span><hr>
+        <button onclick = "clearInterval(t1)">멈추기</button>
+        <button onclick = "window.print()">인쇄하기</button>
+        <button onclick = "location.reload()">reload하기</button>
+        <script>
+            var t1 = setInterval(myClock, 1000);
+            function myClock() {
+                var currentTime = new Date();
+                document.getElementById("clock").innerHTML = currentTime.toLocaleTimeString();
+            }
+        </script> 
+    </body>
+</html>

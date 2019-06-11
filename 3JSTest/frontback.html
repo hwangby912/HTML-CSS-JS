@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function backFront(id) {
+                var tag = document.getElementById(id);
+                for(i = 1; i <= 6; i++) {
+                    if(tag.src.endsWith("backCard.PNG")) {
+                        setTimeout(tag.src = "/3JSTest/img/" + id.charAt(4) + ".PNG", 3000);
+                        
+                        //tag.id = "card" + id.charAt(4);
+                        //tag.src.onclick = frontBack(tag.id);
+                    }
+                }
+                      //  tag.src = "./img/backCard.PNG";
+            }
+            /*
+            function frontBack(id) {
+                var tag = document.getElementById(id);
+                for(i = 1; i <= 6; i++) {
+                    if(tag.id.charAt(4) == i) { 
+                        tag.id.src = "/3JSTest/img/backCard.PNG";
+                        tag.id = "back" + i;
+                        tag.src.onclick = backFront(tag.id);
+                    }
+                }
+            }
+            */
+        </script>
+    </head>
+    <body>
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back1" onclick = "backFront(id);">
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back2" onclick = "backFront(id);">
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back3" onclick = "backFront(id);">
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back4" onclick = "backFront(id);">
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back5" onclick = "backFront(id);">
+        <img src = "img/backCard.PNG" width = 150px height = 150px id = "back6" onclick = "backFront(id);">
+        <br>
+    </body>
+</html>

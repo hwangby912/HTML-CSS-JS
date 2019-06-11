@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function Person(name, id, pw) { // 이런 형식을 '함수 선언식'이라 한다. 
+            this.name = name;
+            this.id = id;
+            this.pw = pw;
+            /*
+            function returnValue() { 이런 식으로 넣으면 안됨
+            JS는 객체같은 함수에 함수를 구현하기 위해서는 '함수 표현식'을 이용해야 한다. 
+                console.log(this.name + " " + this.id + " " + this. pw);
+                return this.name + " " + this.id + " " + this. pw;
+            }
+            이런 형식을 '함수 표현식'이라 칭한다. 
+            객체를 생성할 때, 함수 객체 수 = 객체 생성 개수 * 객체 내의 함수 개수
+            무수히 많이 생기는 함수 객체들 수 때문에 객체명.prototype.함수명으로 작성한다. 
+            
+            this.returnValue = function() {   
+                console.log(this.name + " " + this.id + " " + this.pw);
+                return this.name + " " + this.id + " " + this.pw;
+            }
+            */
+        }
+
+        Person.prototype.returnValue = function() {
+            // 이 code는 Person.prototype 자체에 returnValue라는 함수로 아예 저장을 해버림
+            console.log(this.name + " " + this.id + " " + this.pw);
+            return this.name + " " + this.id + " " + this.pw;
+        }
+
+        function member_insert() {
+            const name = document.forms["member_insert_form"]["name"].value;
+            const id = document.forms["member_insert_form"]["id"].value;
+            const pw = document.forms["member_insert_form"]["pw"].value;
+            let p1 = null;
+            for(let i = 0; i < 100; i++) { // for, while, if block 안에 선언된 변수는 method level로 hoisting됨!!!!!!
+                p1 = new Person(name, id, pw);
+            }
+            //console.log(p1);
+            alert(p1.returnValue());
+            let member_insert_div = document.getElementById("member_insert_div");
+            member_insert_div.innerHTML = "회원가입 완료!!!!!!!!!!"
+        }
+    </script>
+</head>
+
+<body>
+    <h1>My Web Site</h1>
+    <div id = "member_insert_div">
+        <form name = "member_insert_form">
+            <h1>회원가입</h1>
+            Name <input name = "name"><br>
+            ID <input name = "id"><br>
+            PW <input type = "password" name = "pw"><br>
+            <button onclick = "member_insert()">회원가입</button>
+            <!-- 아직 서버 program을 coding 하지 않앗기에 submit 대신에 button으로 대체 -->
+        </form>
+    </div>
+    <img src = "./img/html5.png" width = 150px height = 150px>
+</body>
+
+</html>

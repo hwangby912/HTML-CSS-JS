@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+            
+            img {
+                width: 50px;
+                height: 80px;
+                float: left;
+            }
+
+            #b1 {
+                background: red;
+            }
+
+            #b2 {
+                background: green;
+            }
+
+            #b3 {
+                background: blue;
+            }
+
+            #b4 {
+                background: orange;
+            }
+
+            #b5 {
+                background: skyblue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <script>
+                    var txt2 = "어두워 졌습니다. 전구를 켤까요? "
+                function question(msg) {
+                    var answer = confirm(msg);
+                        if(answer == true) {
+                        document.write("전구가 켜졌습니다. ");
+                        document.write("<img src = 'img/on.png'>");
+                    } else {
+                        document.write("전구가 꺼졌습니다. ");
+                        document.write("<img src = 'img/off.png'>");
+                    }
+                }
+        </script>
+        <h4>1. MouseOver / MouseLeave Event Handling</h4>
+        <img src = "img/off.png" onmouseover = "this.src = 'img/on.png';"
+        onmouseleave = "this.src = 'img/off.png';" /> <br><br>
+        <button onclick = question(txt2)>전구 on / off 시도</button>
+
+        마우스가 전구 위에 있으면 켜지고, 벗어나면 꺼집니다. <hr>
+        
+    </body>
+</html>

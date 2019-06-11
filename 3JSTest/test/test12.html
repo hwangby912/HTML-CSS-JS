@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            function plus(a, b) { // 변수를 한번만 쓸거면 아예 쓰지말고 return이나 그런곳에 해당 명령문을 직접 넣자
+                return a + b;
+            }
+            document.write(plus(1, 2) + "<br><hr>"); // 받아서 출력하는 경우
+            function add(a, b) { // 같은 결과를 나타내지만 구조는 다르다. 
+                document.write(a + b); // 바로 출력하는 경우
+            }
+            add(1, 2); // 함수 호출
+            document.write("<br><hr>");
+
+            // 계산 기능과 출력 기능을 나누고 싶은 경우
+            function add1(a, b) {
+                print (a + b);
+            }
+            function print(msg) {
+                document.write(msg);
+            }
+            add1(1, 2);
+            document.write("<br><hr>");
+            
+            // JS는 익명함수가 가능함 
+            var print = function(msg) {
+                document.write(msg);
+            }
+
+            function printadd(a, b, c) {
+                c(a + b);
+            }
+
+            printadd(1, 2, function(msg) { // 어떤 함수의 인수로만 사용되는 함수
+                document.write(msg); // 해당 함수의 인자를 2개 받아서 3번째 인자로 함수를 수행함
+            }); 
+        </script> 
+    </body>
+</html>

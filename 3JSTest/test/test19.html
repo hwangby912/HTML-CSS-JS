@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #f1 {
+                width: 150px;
+                height: 150px;
+            }
+
+            #txt1 {
+                background: "orange";
+            }
+        </style>
+        <script>
+            function off() {
+                var obj1 = document.getElementById("f1");
+                obj1.src = "/3JSTest/img/off.png";
+                var obj2 = document.getElementById("txt1");
+                obj2.style.color = "blue";
+            }
+        </script>
+    </head>
+    <body>
+        <img id = "f1" src = "/3JSTest/img/on.png" onclick = "off();">
+        <span id = "txt1">Light On</span>
+    </body>
+</html>

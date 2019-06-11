@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function myButtonHandler(a, b) {
+                alert(document.forms[a][b].value); // id가 아닌 name으로 부름, 값을 접근할 때에는 배열처럼 접근함
+                // alert(document.body.innerHTML); // body 안에 있는 모든 것들을 가지고 옴
+                // document.forms[0].innerHTML = "HBY"; // id_form에 대한 것을 HBY로 바꿔버림
+            }
+        </script>
+    </head>
+    <body>
+        <form name = "id_form">
+            ID <input type = "text" name = "id" method = "post">
+            <button onclick = "myButtonHandler('id_form', 'id')">확인</button>
+        </form>
+        <form name = "pw_form">
+            PW <input type = "password" name = "pw" method = "post">
+            <button onclick = "myButtonHandler('pw_form', 'pw')">확인</button>
+        </form>        
+    </body>
+</html>

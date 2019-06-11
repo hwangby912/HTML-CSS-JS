@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            var a = "global A"; // 이 3개는 모두 window의 멤버 변수이다. 
+            var b = "global B";
+            var c = "global C";
+            function F1() { // window의 함수인 F1
+            // F1.prototype -> Object.prototype -> F1() construnctor 객체가 얻어짐 
+            // -> Function.prototype -> object.prototype -> 계속 return 
+                var b = "local B"; // f1 함수의 local 변수
+                var d = "local D";
+
+                document.write("a = " + a + "<br>");
+                document.write("b = " + b + "<br>");
+                document.write("this.b = " + this.b + "<br>");
+                document.write("c = " + c + "<br>");
+                document.write("d = " + d + "<br><hr>"); 
+                // 만약 local D가 없다면 undefined로 출력됨. 왜냐하면 local에는 d가 정의되있지 않기 때문.
+            }
+
+            F1(); // f는 window의 멤버 변수
+            document.write("a = " + a + "<br>");
+            document.write("b = " + b + "<br>");
+            document.write("this.b = " + this.b + "<br>");
+            document.write("c = " + c + "<br>");
+            document.write("d = " + d + "<br><hr>");
+            document.write("d = " + d + "<br><hr>");
+        </script> 
+    </body>
+</html>
