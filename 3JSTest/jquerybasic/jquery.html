@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+	<head>
+    
+    </head>
+    
+    <body>
+        <script>
+            function $() {
+                return new hby();
+            }
+
+            function hby() {
+
+            }
+
+            hby.prototype.c = function() {
+                return obj;
+            }
+
+            hby.prototype.b = function(id) {
+                return c(document).getElementById(id);
+            }
+
+        	function a() {
+            	$().b("p1").innerHTML = "이제부터는....";
+            }
+        </script>
+        <h3>jQuery Test</h3>
+        <p id = "p1">지금까지 HTML CSS 함</p>
+        <button id = "b1" onclick = "a()">Next</button>
+    </body>
+</html>

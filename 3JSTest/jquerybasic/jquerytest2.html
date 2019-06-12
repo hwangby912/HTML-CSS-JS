@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#b1').on('click', function() {
+                    $('#t1').html('jQuery Programming');
+                });
+                $('#b2').on('click', function() {
+                    $('#t1').css('color', 'red');
+                });
+            })
+        </script>
+    </head>
+    
+    <body>
+        <h3 id = "t1">JS Program</h3><hr>
+        <button id = "b1">내용 변경</button>
+        <button id = "b2">스타일 변경</button>
+    </body>
+
+</html>

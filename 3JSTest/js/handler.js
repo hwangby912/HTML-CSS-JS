@@ -29,12 +29,13 @@ Person.prototype.returnValue = function() {
     contact_div.innerHTML = this.name + " 환영합니다. ";
 }
 
-function subscribeEventHandler() {
+function subscribe_btn_handler() {
     let subEmail = document.getElementById("subscribeEmail").value;
-    let subHandValue = document.getElementById("subHandler");
+    let subscribe_btn = document.getElementById("subscribe_btn");
     if(subEmail == p1.email) {
         //alert("Same Email");
         document.getElementById("subscribeIcon").innerHTML = p1.name + " 환영합니다. ";
-        subHandValue.innerHTML = "Log Out"
+        subscribe_btn.innerHTML = "Log Out"
+        subscribe_btn.setAttribute("onclick", "alert()");
     }
 }
