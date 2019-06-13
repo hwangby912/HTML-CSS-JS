@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src = "js/handler.js"></script>
+  <script src = "js/handler2.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -46,7 +46,7 @@
       <input type="email" class="form-control" size="200" placeholder="Email Address" id = "subscribeEmail" required>
     </div>
     <div class="input-group-btn">
-      <button type="button" class="btn btn-danger" onclick = "subscribe_btn_handler()" id = "subscribe_btn">Subscribe</button>
+      <button type="button" class="btn btn-danger" id = "subscribe_btn">Subscribe</button>
     </div>
   </form>
 </div>
@@ -87,12 +87,12 @@
   <br>
   <div class="row slideanim">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-off logo-small" onclick = "window.open('./car_info.html', '_blank', 'width=1000, height=500')"></span>
+      <span class="glyphicon glyphicon-off logo-small" id = "powerIcon"></span>
       <h4>POWER</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <span class="glyphicon glyphicon-heart logo-small" id = "loveIcon"></span>
       <h4>LOVE</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
@@ -274,7 +274,7 @@
       <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit" onclick = "contact_button_handler()">Send</button>
+          <button class="btn btn-default pull-right" type="submit" id = "btn_send">Send</button>
         </div>
       </div>
       </form>

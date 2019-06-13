@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="./css/stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src = "js/handler2.js"></script>
     <script>
-        function retBtn() {
+        function retBtn() { // 조회 버튼시 수행되는 함수
             let btnGrpVal = document.getElementById("select_menu").value;
             let btnGrpValNo = parseInt(btnGrpVal);
             let carNumVal = document.getElementById("carNum").value;
             let imgSrc = document.getElementById("img_div");
-            if(btnGrpVal == 1) { // 조회타입
+            if(btnGrpValNo == 1) { // 조회타입
                 alert("Select others");
-            } else if(btnGrpVal == 2 || btnGrpVal == 3){ // 차량번호 || 차대번호
+            } else if(btnGrpValNo == 2 || btnGrpValNo == 3){ // 차량번호 || 차대번호
                 alert(carNumVal);
                 imgSrc.innerHTML = "<table border = 1 width = '1000px'>\
                     <tr><th>제조사</th><th>자동차명</th><th>배기량</th><th>사용연료</th>\
@@ -47,7 +48,7 @@
                 <textarea id = "carNum" rows="1" cols="100" placeholder="차량(대)번호를 띄워쓰기 없이 입력하세요. 예)01가1234"></textarea>
             </p>
             <p>
-                <button type="button" class="btn btn-primary" data-toggle="dropdown" onclick = "retBtn()">
+                <button type="button" class="btn btn-primary" data-toggle="dropdown" id = "search_btn">
                     조회 <span class="caret"></span></button>
             </p>
             <div id = "img_div">

@@ -2,12 +2,12 @@
     <head>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script>
-            $(document).ready(function() {
-                $('#b1').on('click', function() {
-                    $('#t1').html('jQuery Programming');
+            $(document).ready(function() { // document가 ready함수 수행 후, callback 함수 수행
+                $('#b1').on('click', function() { // id = "b1"인 것에 이벤트 설정을 click으로 하고 그것을 callback 함수로 수행
+                    $('#t1').html('jQuery Programming'); // t1을 jQuery... 으로 변경
                 });
-                $('#b2').on('click', function() {
-                    $('#t1').css('color', 'red');
+                $('#b2').on('click', function() { // id = "b2"인 것에 이벤트 설정을 click으로 하고 그것을 callback 함수로 수행
+                    $('#t1').css('color', 'red'); // id = "t1"에 대해서 css 함수 수행을 하고 색을 red로 주기
                 });
             })
         </script>
