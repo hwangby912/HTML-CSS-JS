@@ -11,7 +11,21 @@ Person.prototype.returnValue = function () {
 
 }
 
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("love_search_rs").innerHTML = this.responseText;
+        }
+    };
+    var name = document.getElementById("ajax_test_name").value;
+    xhttp.open("GET", "http://70.12.50.51:3000/hello?name=" + name, true);
+    xhttp.send();
+}
+
 $(document).ready(function () {
+
+    /* 기존에 btn_send를 누르면 이루어지는 행위
     $("#btn_send").on("click", function () {
         let name = $("#name").val();
         let email = $("#email").val();
@@ -22,7 +36,31 @@ $(document).ready(function () {
 
         $("#contact_div").html("<h1>" + name + "님 환영합니다!</h1>");
     });
+    */
 
+    $("#btn_send").click(function () {
+        const name_ = $("#name").val();
+        const email_ = $("#email").val();
+        const comments_ = $("#comments").val();
+        let sendData = { // 객체
+            name: name_, // 변수 : 값
+            email: email_,
+            comments: comments_
+        };
+        $.post("http://70.12.50.51:3000/member_insert",
+            sendData,
+            function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            }
+        );
+        // $안에 있는 post 함수 사용하며
+        // URL로 접근해서 myJSON을 post 방식을 넘겨주며 
+        // post의 2번째 인자에는 JS의 객체를 넣어준다. jQuery의 함수들 그렇게 만들어놨으니까
+        // callback 함수로 alert 수행
+    });
+
+
+    /* 기존에 subscribe_btn 누르면 이루어지는 행위
     $("#subscribe_btn").click(function () {
         let subEmail = $("#subscribeEmail").val();
         if (subEmail == p1.email) {
@@ -35,8 +73,22 @@ $(document).ready(function () {
             subscribe_btn.attr("onclick", "location.reload()");
         }
     });
-    
-    $("#search_btn").click(function() {
+    */
+
+    $("#subscribe_btn").click(function () {
+        let login_id = $("#subscribeEmail").val();
+        alert(login_id);
+        $.post("http://70.12.50.51:3000/login",
+            {
+                email: login_id
+            }, function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+                let dataJSON = JSON.parse(data);
+                $("#subscribeIcon").html(dataJSON.msg);
+            });
+    });
+
+    $("#search_btn").click(function () {
         let btnGrpVal = $("#select_menu").val();
         let carNumVal = $("#carNum").val();
         let imgSrc = $("#img_div");
@@ -53,11 +105,29 @@ $(document).ready(function () {
         }
     });
 
-    $("#powerIcon").click(function() { // window.$ = jQuery = window.jQuery
+    $("#powerIcon").click(function () { // window.$ = jQuery = window.jQuery
         window.open("./car_info.html", "_blank", "width=1000, height=500");
     });
-    
-    $("#loveIcon").click(function() {
+
+    $("#loveIcon").click(function () {
         window.open("./loveButton.html", "_blank", "width = 1000, height = 500");
+    });
+
+    /*
+     2019.06.14 second 부분과 관련
+    $("#love_search_btn").click(function() {
+        loadDoc();
+    });
+    */
+
+    $("#love_search_btn").click(function () {
+        // JSON.parse(data)는 String -> JSON
+        // JSON.stringify(data)는 JSON -> String
+        const name = $("#ajax_test_name").val();
+        $.get("http://70.12.50.51:3000/hello?name=" + name, function (data, status) {
+            let myObj = JSON.parse(data);
+            $("#love_rs").html("<h1 style = 'color: red'>Data: " + myObj.msg + "\nStatus: " + status + "</h1>");
+            // $("#love_rs").html("Data: " + data + "\nStatus: " + status);
+        });
     });
 });

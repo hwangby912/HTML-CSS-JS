@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /* 해당 2줄은 hide와 alert()가 서로 다른 thread이기 때문에 같이 수행됨
+                하지만 하나의 공유자원으로 인해 concurrency 문제 발생
+                alert가 foreground이기에 alert만 수행되는것처럼 보이지만 hide도 수행되고 있음
+            $("#hide").click(2000); 
+            alert(); 
+            */
+            $("#hide").click(function () {
+                $("p").hide(2000, function () { // hide를 2초 후에 완료되면 alert를 띄움
+                    alert();
+                });
+            });
+            $("#show").click(function () {
+                $("p").show(2000);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>If you click on the "Hide" button, I will disappear.</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+
+</body>
+
+</html>
